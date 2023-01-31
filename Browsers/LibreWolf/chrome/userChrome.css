@@ -1,1 +1,97 @@
 
+* {
+  font-size: 10pt !important;
+}
+
+#TabsToolbar {
+  visibility: collapse !important;
+}
+
+#nav-bar {
+  opacity: 0.6;
+  box-shadow: none !important;
+  border: 2px #000 !important;
+  border-radius: 14px 14px 0px 0px !important;
+}
+
+#urlbar * {
+  border: 0 !important;
+  border-radius: 15px !important;
+}
+#urlbar {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+[uidensity="compact"]:root .titlebar-button {
+  height: 32px !important;
+  display: none !important;
+}
+[uidensity="compact"]:root #nav-bar {
+  margin-top: -32px;
+}
+
+
+#main-window[inFullscreen="true"] #sidebar-box,
+#main-window[inFullscreen="true"] #sidebar-box + splitter {
+    visibility: collapse;
+}
+
+#sidebar-box #sidebar-header {
+  display: none !important;
+}
+
+
+
+
+/*  Clean and tight extensions menu */
+#unified-extensions-panel #unified-extensions-view {
+  max-width: 228px !important;
+}
+
+#unified-extensions-view .panel-header,
+#unified-extensions-view .panel-header + toolbarseparator,
+#unified-extensions-view .panel-subview-body + toolbarseparator,
+#unified-extensions-view toolbarseparator {
+    display:none !important;
+}
+
+#unified-extensions-view .unified-extensions-item-menu-button.subviewbutton{
+    display: none !important;
+}
+
+#unified-extensions-view .panel-subview-body {
+    padding-top: 8px !important;
+    padding-bottom: 6px !important;
+}
+
+#unified-extensions-view .unified-extensions-item-icon, 
+#unified-extensions-view .unified-extensions-item[unified-extensions="true"] .webextension-browser-action 
+> .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    height: 16px !important;
+    width: 16px !important;
+}
+
+#unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents {
+    display: none !important;
+}
+
+#unified-extensions-view .unified-extensions-item-icon, 
+#unified-extensions-view .unified-extensions-item[unified-extensions="true"] .webextension-browser-action > .toolbarbutton-badge-stack {
+  margin-inline-end: 0px !important;
+}
+
+#unified-extensions-view #overflowed-extensions-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+#unified-extensions-view #unified-extensions-area {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+#unified-extensions-view .unified-extensions-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
