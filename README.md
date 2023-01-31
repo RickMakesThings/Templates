@@ -1,2 +1,3 @@
-# Browsers
-Files for different browsers I use, like UserChrome.css
+# Templates
+
+Template files for HTML emails, browser customisation and websites
