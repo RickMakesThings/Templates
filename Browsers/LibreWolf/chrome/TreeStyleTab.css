@@ -4,6 +4,12 @@
   border-radius: 15px !important;
 }
 
+main {
+  background-color: #000;
+  color: #afafaf;
+  border-radius: 0px !important;
+}
+
 .label, img {
   opacity: 0.6;
 }
