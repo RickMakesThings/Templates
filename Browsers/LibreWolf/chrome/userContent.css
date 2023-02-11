@@ -1,1 +1,99 @@
+/* 
+------------------------------
+----------DuckDuckGo----------
+------------------------------
+ */
+ 
+@-moz-document domain(duckduckgo.com) {
 
+/* Remove and round borders */
+* {
+    border: 0 !important;
+}
+html {
+  --default-border-radius: 20px !important;
+}
+
+/* Remove header buttons */
+.header--aside__item.showcase.header__label {
+    display: none !important;
+}
+.header--aside__item.header--aside__social.header__label.social.js-header-aside-item-social {
+    display: none !important;
+}
+
+/* Homepage logo */
+.logo-wrap--home {
+    opacity: 0.7 !important;
+    filter: saturate(130%) !important;
+}
+
+/* Homepage search field & related (suggested drop down) */
+#search_form_homepage {
+    border: 0 !important;
+    padding-left: 1.5em !important;
+}
+.search--adv:hover, .search--adv.search--header.has-text.search--hover, .search--adv.search--header.has-text.search--focus, .search--adv.search--home.has-text {
+  padding-right: 1.5em !important;
+}
+#search_form_input_clear {
+    display: none !important;
+}
+#search_button_homepage {
+    display: none !important;
+}
+.acp-wrap.js-acp-wrap {
+    padding-left: 1.25em !important;
+    padding-right: 1.25em !important;
+}
+.acp {
+    opacity: 0.7 !important;
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+    border-radius: 15px !important;
+}
+
+/* Homepage DDG branding */
+.tag-home.tag-home--slide.no-js__hide.js-tag-home {
+    display: none !important;
+}
+
+/* 
+----------
+RESULTS PAGE
+----------
+ */
+
+/* Make header logo more subtile */
+.header__logo.js-logo-ddg {
+    opacity: 0.7 !important;
+    filter: saturate(130%) !important;
+}
+
+/* Search bar input margin to accomodate rounded corners */
+#search_form_input {
+    margin-left: 1em !important;
+}
+
+/* Fix search button extending past suggestions popup & desaturate it */
+.search__button.js-search-button {
+    margin-right: 1px !important;
+    font-size: 14px !important;
+    filter: saturate(0%) !important;
+}
+
+.search__button, .search__button--hero {
+}
+
+/* Hide image results on default search page */
+.module-slot {
+    display: none !important;
+}
+
+/* Increase spacing between search results */
+.nrn-react-div {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+}
