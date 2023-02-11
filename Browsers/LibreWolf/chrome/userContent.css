@@ -82,9 +82,6 @@ RESULTS PAGE
     filter: saturate(0%) !important;
 }
 
-.search__button, .search__button--hero {
-}
-
 /* Hide image results on default search page */
 .module-slot {
     display: none !important;
