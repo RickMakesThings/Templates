@@ -48,8 +48,8 @@ html {
 }
 .acp {
     opacity: 0.7 !important;
-    margin-top: 3px !important;
-    margin-bottom: 3px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
     border-radius: 15px !important;
 }
 
