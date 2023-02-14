@@ -1,9 +1,126 @@
 /* 
 ------------------------------
+-----GENERAL / ALL PAGES------
+------------------------------
+ */
+
+/* Prevent flashbanging while a page loads, before Dark Reader extension kicks in */
+@media (prefers-color-scheme: light) {
+html, body {
+    background-color: rgb(28,27,34);
+  }
+}
+
+ /* 
+------------------------------
+--------Internal pages--------
+------------------------------
+ */
+
+/* 
+----------
+about:newtab
+----------
+ */
+
+@-moz-document url(about:newtab), url(about:home) {
+
+/* Round search bar */
+.search-handoff-button {
+    border: 0 !important;
+    border-radius: 30px !important;
+}
+/* Remove placeholder text */
+.fake-textbox {
+    display: none !important;
+}
+}
+
+/* 
+----------
+about:privatebrowsing
+----------
+ */
+
+@-moz-document url(about:privatebrowsing) {
+
+/* Visible on this url in non-private windows */
+
+/* Remove text stating you are not currently in Private */
+p {
+    display: none !important;
+}
+
+/* Round & style "Open a Private Window" button */
+#startPrivateBrowsing {
+    border: 0 !important;
+    border-radius: 15px !important;
+    opacity: 0.7 !important;
+    cursor: pointer !important;
+}
+
+
+/* Visible on this url in private windows */
+
+/* Replace purple background */
+html.private {
+    background-color: rgb(28,27,34) !important;
+}
+
+/* Remove everything but the search bar */
+.logo-and-wordmark {
+    display: none !important;
+}
+.info {
+    display: none !important;
+}
+
+/* Style the search bar */
+.search-handoff-button {
+    background-color: rgb(28,0,34) !important;
+    border: 0 !important;
+    border-radius: 30px !important;
+}
+
+/* Replace the black placeholder text with light gray */
+.fake-textbox {
+    color: #F3F3F3 !important;
+}
+}
+
+/* 
+----------
+addons.mozilla.org
+----------
+ */
+
+@-moz-document domain(addons.mozilla.org) {
+
+/* Simple custom Dark Mode by basically inverting the whole website, then inverting images back again */
+.Page-content {
+    filter: invert(100%) !important;
+    background: #E9E9E9 !important;
+}
+.Page-content img {
+    filter: invert(100%) !important;
+}
+.pswp__bg {
+    filter: invert(100%) !important;
+}
+}
+
+ /* 
+------------------------------
 ----------DuckDuckGo----------
 ------------------------------
  */
- 
+
+/* 
+----------
+HOME PAGE
+----------
+ */
+
 @-moz-document domain(duckduckgo.com) {
 
 /* Remove and round borders */
@@ -37,7 +154,7 @@ html {
     display: none !important;
 }
 .search--adv:hover, .search--adv.search--header.has-text.search--hover, .search--adv.search--header.has-text.search--focus, .search--adv.search--home.has-text {
-  padding-right: 1.5em !important;
+    padding-right: 1.5em !important;
 }
 #search_form_input_clear {
     display: none !important;
@@ -102,22 +219,22 @@ RESULTS PAGE
     margin-left: 1em !important;
 }
 
-/* Fix search button extending past suggestions popup & desaturate it */
+/* Fix search button extending past suggestions popup with DDGs Gray Theme & desaturate it */
 .search__button.js-search-button {
     margin-right: 1px !important;
     font-size: 14px !important;
     filter: saturate(0%) !important;
 }
 
-/* Hide image results on default search page */
+/* Hide image results on default search page (All) */
 .module-slot {
     display: none !important;
 }
 
 /* Increase spacing between search results */
 .nrn-react-div {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
 }
 
 }
