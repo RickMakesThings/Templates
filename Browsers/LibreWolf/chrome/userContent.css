@@ -1,8 +1,8 @@
-/* 
+/*
 ------------------------------
 -----GENERAL / ALL PAGES------
 ------------------------------
- */
+*/
 
 /* Prevent flashbanging while a page loads, before Dark Reader extension kicks in */
 @media (prefers-color-scheme: light) {
@@ -11,17 +11,64 @@ html, body {
   }
 }
 
- /* 
+/*
+------------------------------
+------Extensions/Add-ons------
+------------------------------
+*/
+
+/*
+----------
+Dark mode TreeStyleTab & uBlock Origin pages - TO DO!!!
+----------
+*/
+
+@-moz-document domain(moz-extension://184981cb-6380-4278-880d-d4a97a0284b1), domain(moz-extension://3587c206-3c16-4198-a733-532eaf1da48b) {
+* {
+    filter: invert(100%) !important;
+}
+}
+
+
+/*
 ------------------------------
 --------Internal pages--------
 ------------------------------
- */
+*/
 
-/* 
+/*
+----------
+about:preferences/profiles/config/addons
+----------
+*/
+
+@-moz-document url(about:preferences), url(about:profiles), url(about:config), url(about:addons) {
+
+/* Round everything */
+* {
+    border: 0 !important;
+    border-radius: 15px !important;
+}
+}
+
+/* Exceptions */
+@-moz-document url(about:profiles) {
+.column {
+    border-radius: 0px !important;
+}
+}
+
+@-moz-document url(about:preferences), url(about:addons) {
+img, treecol, .searchBarImage, .category-icon {
+    border-radius: 0px !important;
+}
+}
+
+/*
 ----------
 about:newtab
 ----------
- */
+*/
 
 @-moz-document url(about:newtab), url(about:home) {
 
@@ -36,20 +83,16 @@ about:newtab
 }
 }
 
-/* 
+/*
 ----------
 about:privatebrowsing
 ----------
- */
+*/
 
 @-moz-document url(about:privatebrowsing) {
 
-/* Visible on this url in non-private windows */
 
-/* Remove text stating you are not currently in Private */
-p {
-    display: none !important;
-}
+/* Visible on this url in non-private windows */
 
 /* Round & style "Open a Private Window" button */
 #startPrivateBrowsing {
@@ -68,10 +111,7 @@ html.private {
 }
 
 /* Remove everything but the search bar */
-.logo-and-wordmark {
-    display: none !important;
-}
-.info {
+p, .logo-and-wordmark, .info {
     display: none !important;
 }
 
@@ -88,11 +128,11 @@ html.private {
 }
 }
 
-/* 
+/*
 ----------
 addons.mozilla.org
 ----------
- */
+*/
 
 @-moz-document domain(addons.mozilla.org) {
 
@@ -101,25 +141,22 @@ addons.mozilla.org
     filter: invert(100%) !important;
     background: #E9E9E9 !important;
 }
-.Page-content img {
-    filter: invert(100%) !important;
-}
-.pswp__bg {
+.Page-content img, .pswp__bg  {
     filter: invert(100%) !important;
 }
 }
 
- /* 
+/*
 ------------------------------
 ----------DuckDuckGo----------
 ------------------------------
- */
+*/
 
-/* 
+/*
 ----------
 HOME PAGE
 ----------
- */
+*/
 
 @-moz-document domain(duckduckgo.com) {
 
@@ -131,36 +168,30 @@ html {
   --default-border-radius: 20px !important;
 }
 
-/* Remove header buttons */
-.header--aside__item.showcase.header__label {
-    display: none !important;
-}
-.header--aside__item.header--aside__social.header__label.social.js-header-aside-item-social {
+/* Remove header buttons...*/
+.header--aside__item.showcase.header__label, .header--aside__item.header--aside__social.header__label.social.js-header-aside-item-social, 
+/* ...logo tooltip... */
+.logo_homepage__tt,
+/* ...Search field buttons and placeholder...*/
+#search_form_homepage input::placeholder, #search_form_input_clear, #search_button_homepage, 
+/* ...& DuckDuckgo branding */
+.tag-home.tag-home--slide.no-js__hide.js-tag-home, .badge-link.badge-link--full.js-badge-link, .content-info, .onboarding-ed.js-onboarding-ed.onboarding-ed--faq, .faq, .btn.btn--primary.atb-button--faq.ddg-extension-hide{
     display: none !important;
 }
 
-/* Homepage logo */
-.logo-wrap--home {
+/* Softer logos */
+.logo-wrap--home, .header__logo.js-logo-ddg {
     opacity: 0.7 !important;
     filter: saturate(130%) !important;
 }
 
 /* Homepage search field & related (suggested drop down) */
 #search_form_homepage {
-    border: 0 !important;
     padding-left: 1.5em !important;
 }
-#search_form_homepage input::placeholder {
-    display: none !important;
-}
+
 .search--adv:hover, .search--adv.search--header.has-text.search--hover, .search--adv.search--header.has-text.search--focus, .search--adv.search--home.has-text {
     padding-right: 1.5em !important;
-}
-#search_form_input_clear {
-    display: none !important;
-}
-#search_button_homepage {
-    display: none !important;
 }
 .acp-wrap.js-acp-wrap {
     padding-left: 1.25em !important;
@@ -183,36 +214,12 @@ html {
 .site-wrapper {
     overflow: visible !important;
 }
-.tag-home.tag-home--slide.no-js__hide.js-tag-home {
-    display: none !important;
-}
-.badge-link.badge-link--full.js-badge-link {
-    display: none !important;
-}
-.content-info {
-    display: none !important;
-}
-.onboarding-ed.js-onboarding-ed.onboarding-ed--faq {
-    display: none !important;
-}
-.faq {
-    display: none !important;
-}
-.btn.btn--primary.atb-button--faq.ddg-extension-hide {
-    display: none !important;
-}
 
-/* 
+/*
 ----------
 RESULTS PAGE
 ----------
- */
-
-/* Make header logo more subtile */
-.header__logo.js-logo-ddg {
-    opacity: 0.7 !important;
-    filter: saturate(130%) !important;
-}
+*/
 
 /* Search bar input margin to accomodate rounded corners */
 #search_form_input {
@@ -238,3 +245,221 @@ RESULTS PAGE
 }
 
 }
+
+/*
+------------------------------
+------------Reddit------------
+------------------------------
+*/
+
+@-moz-document domain(reddit.com) {
+
+/*
+----------
+GENERAL
+----------
+*/
+
+._31N0dvxfpsO6Ur5AKx4O5d {
+    background-color: #141515 !important;
+}
+
+/* Hide Cookiebanner... */
+._3q-XSJ2vokDQrvdG6mR__k,
+.infobar-toaster-container,
+/* ...Trending today... */
+#TrendingPostsContainer,
+/* ...Left sidebar... */
+._20fGT0XJD3MvX9yBsVeKMn.zoWOQnp55WuhEugRSwfw1,
+/* ..."Get app" button... */
+._3Wg53T10KuuPmyWOMWsY2F.Z_HUY3BUsGOBOtdmH94ZS._2iuoyPiKHN3kfOoeIQalDT._2tU8R9NTqhvBrhoNAXWWcP.HNozj_dKjQZ59ZsfEegz8._1tPpYVD73ugqp4k-VMFRki._2nelDm85zKKmuD94NequP0,
+/* ..."Popular communities" right sidebar... */
+._2vEf-C2keJaBMY9qk_BxVn,
+/* ..."Back to top" button... */
+._3Tc8YYRhVDX9vlR0XePZfH._365FiUZ11efXHV7l7fNp6K,
+/* ... user profile tooltip... */
+._1sbZnfdaxhCOFVUCJ3Z75m,
+/* ...subreddit tooltip... */
+._1sbZnfdaxhCOFVUCJ3Z75m,
+/* ...header title... */
+._3ioMyxiI-wWgZFqBDVBh6r._1fauFKjg428h9E1m4B2Vr-,
+/* ...Back to subreddit button on post page... */
+._3aAvvioBKBNnlJqKytAVAd,
+/* ..."Follow post" button... */
+._3KTYozwt91D81Yub-OQ4S3,
+/* ..."Share/Save" buttons... */
+.kU8ebCMnbXfjCWfqn0WPb,
+._10K5i7NW6qcm-UoCtpB3aK.YszYBnnIoNY8pZ6UwCivd._3yh2bniLq7bYr4BaiXowdO._2sAFaB0tx4Hd5KxVkdUcAx._3sUJGnemgtNczijwoT8PGg,
+/* ...Black bar on op of Post page... */
+._3obgdFz00GvpqpuX8QCsNK,
+/* ...& Awards */
+._3XoW0oYd5806XiOr24gGdb
+{
+    display: none !important;
+}
+
+/* Hide empty space left container */
+._1nxEQl5D2Bx2jxDILRHemb._3x1dyL19KnZ4kI6i9TlRp4 {
+    padding-left: 0px !important;
+}
+._1OVBBWLtHoSPfGCRaPzpTf._3nSp9cdBpqL13CqjdMr2L_._2OVNlZuUd8L9v0yVECZ2iA {
+    margin-left: 240px !important;
+}
+.MSTY2ZpsdupobywLEfx9u {
+    padding-left: 125px !important;
+}
+
+/* Only show footer info on hover */
+._1oRQu-aolgpPPJDblUGTw5 {
+    opacity: 0 !important;
+    max-height: 150px !important;
+}
+._1oRQu-aolgpPPJDblUGTw5:hover {
+    opacity: 0.7 !important;
+}
+
+/* Soften logo & comments */
+._30BbATRhFv3V83DHNDjJAO {
+    opacity: 0.7 !important;
+}
+/* and post details */
+._14-YvdFiW5iVvfe5wdgmET,
+._23h0-EcaBUorIHC-JZyh6J{
+    opacity: 0.5 !important;
+}
+/* and comment section */
+._1ump7uMrSA43cqok14tPrG {
+    opacity: 0.9 !important;
+}
+/* and right sidebar */
+._31AVRNJbVMh2DUFRrpCQcD,
+._1FUNcfOeszr8eruqLxCMcR._3ZmEUUvrdj4LXpXC9XZdN7 {
+    opacity: 0.7 !important;
+}
+
+/* Remove borders website header */
+._2vkeRJojnV7cb9pMlPHy7d {
+  border-bottom: none !important;
+  border-radius: 0px 0px 15px 15px !important;
+}
+._1DeR7_QiQnu2UK0e2dDfYD {
+  border: none !important;
+}
+
+/* Round over post media */
+.media-element, ._1dwExqTGJH2jnA-MYGkEL-, video
+{
+    border: 0 !important;
+    border-radius: 15px !important;
+}
+
+/* Desaturate the "Login" button... */
+._3Wg53T10KuuPmyWOMWsY2F.Z_HUY3BUsGOBOtdmH94ZS._2iuoyPiKHN3kfOoeIQalDT._10BQ7pjWbeYP63SAPNS8Ts.HNozj_dKjQZ59ZsfEegz8._2nelDm85zKKmuD94NequP0,
+/* ...the "Join" button... */
+._35dG7dsi4xKTT-_2MB74qq._2iuoyPiKHN3kfOoeIQalDT._10BQ7pjWbeYP63SAPNS8Ts.UEPNkU0rd1-nvbkOcBatc,
+.ly1p6kYBCM7ZqoRjGeAhw,
+._2I_YJCANrzkY2DZkeu2nht,
+._1qiHDKK74j6hUNxM0p9ZIp,
+/* off-site links */
+._2MkcR85HDnYngvlVW2gMMa,
+/* ...& the homepage header */
+.wBtTDilkW_rtT2k5x3eie
+{
+    filter: saturate(0%) !important;
+}
+
+/* That scrollable text container under posts */
+._26daP6nhhW7BT-CMzL0ijs {
+    visibility: hidden !important;
+}
+
+/*
+----------
+HOME PAGE
+----------
+*/
+
+/* Round homepage header */
+.wBtTDilkW_rtT2k5x3eie {
+    border: 0 !important;
+    border-radius: 15px !important;
+    opacity: 0.7 !important;
+    margin-top: 20px !important;
+    margin-bottom: -5px !important;
+}
+
+/* Post containers */
+.Post
+{
+    border: 0 !important;
+    border-radius: 15px !important;
+    padding-left: 60px !important;
+    padding-right: 10px !important;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+    margin-top: 40px !important;
+    background-color: #181a1b !important;
+}
+/* up/downvotes */
+._23h0-EcaBUorIHC-JZyh6J {
+    padding-left: 25px !important;
+    margin-top: 10px !important;
+}
+
+/*
+----------
+Subreddit
+----------
+*/
+
+/* "About Community" section */
+._ZhON3a3vplThB8NFwuJn, .hpxKmfWP2ZiwdKaWpefMn {
+    border: 0 !important;
+    border-radius: 15px 15px 0px 0px !important;
+}
+
+/* Post container */
+._1G4yU68P50vRZ4USXfaceV {
+    margin-top: 20px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+}
+
+/*
+----------
+Post
+----------
+*/
+
+/* Title background */
+._1poyrkZ7g36PawDueRza-J._11R7M_VOgKO1RJyRSRErT3 {
+    background-color: #181a1b !important;
+}
+
+/* Right sidebar */
+.uI_hDmU5GSiudtABRz_37 {
+    border: 0 !important;
+    border-radius: 15px !important;
+    margin-top: -20px !important;
+}
+
+/* Post wrapper */
+
+#overlayScrollContainer {
+    background-color: #141515 !important;
+}
+
+/* Add margins to post media */
+.STit0dLageRsa2yR4te_b {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+}
+
+/* TO DOOOOOO
+
+- Round over videos reliably
+- Clean up code
+
+*/
